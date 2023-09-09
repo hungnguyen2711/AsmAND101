@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".NhanVienActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBarNv"
+        android:layout_width="match_parent"
+        android:background="#2196F3"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imgBackNv"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_back"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhân Viên"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:paddingLeft="20dp"/>
+        <SearchView
+            android:id="@+id/searchNv"
+            android:queryBackground="@color/white"
+            android:submitBackground="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginRight="20dp"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <Button
+        android:id="@+id/btnThemPhongNV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Thêm phòng nhân viên mới"
+        android:textSize="21dp"
+        android:textAllCaps="true"
+        android:backgroundTint="#03A9F4"/>
+
+    <ListView
+        android:id="@+id/lvThemNv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"/>
+</LinearLayout>
