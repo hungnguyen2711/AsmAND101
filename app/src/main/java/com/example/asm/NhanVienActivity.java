@@ -5,12 +5,14 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultCaller;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -32,10 +34,17 @@ public class NhanVienActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nhan_vien);
 
-        ImageView imgback = findViewById(R.id.imgBackNv);
+        Toolbar toolbar = findViewById(R.id.toolBarNv);
         SearchView searchView = findViewById(R.id.searchNv);
         Button btnThemNv = findViewById(R.id.btnThemPhongNV);
         listViewNv = findViewById(R.id.lvThemNv);
+
+
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Nhân Viên");
+
 
         list = new ArrayList<>();
         list.add(new NhanVien("NV001","Nguyễn Văn B", "Hành chính"));
@@ -67,14 +76,6 @@ public class NhanVienActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-        imgback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-
 
 
         btnThemNv.setOnClickListener(new View.OnClickListener() {
@@ -116,6 +117,18 @@ public class NhanVienActivity extends AppCompatActivity {
                         }
                 }
             }
+
     );
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        switch (item.getItemId()){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                break;
+        }
+        return onOptionsItemSelected(item);
+    }
 }

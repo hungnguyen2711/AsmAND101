@@ -1,13 +1,16 @@
 package com.example.asm;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Toolbar;
 
 import com.example.asm.adapter.PhongBanAdapter;
 import com.example.asm.model.PhongBan;
@@ -23,10 +26,14 @@ public class PhongBanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phong_ban);
 
-        ImageView imgBackPB = findViewById(R.id.imgBackPb);
+        Toolbar toolbar = findViewById(R.id.toolBarPb);
         SearchView searchViewPB = findViewById(R.id.searchPB);
         listViewPb = findViewById(R.id.lvPb);
 
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Phòng Ban");
 
         loadData(getDSPB());
 
@@ -53,12 +60,6 @@ public class PhongBanActivity extends AppCompatActivity {
             }
         });
 
-        imgBackPB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
     }
 
     public void loadData(ArrayList<PhongBan> list){
@@ -75,4 +76,15 @@ public class PhongBanActivity extends AppCompatActivity {
         return list;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        switch (item.getItemId()){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                break;
+        }
+        return onOptionsItemSelected(item);
+    }
 }

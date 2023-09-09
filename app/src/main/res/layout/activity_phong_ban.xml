@@ -8,22 +8,10 @@
     tools:context=".PhongBanActivity">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBarPb"
         android:layout_width="match_parent"
         android:background="#2196F3"
         android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/imgBackPb"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_back"
-            android:layout_marginLeft="20dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Phòng Ban"
-            android:textSize="25dp"
-            android:textColor="@color/white"
-            android:paddingLeft="20dp"/>
         <SearchView
             android:id="@+id/searchPB"
             android:layout_width="wrap_content"
